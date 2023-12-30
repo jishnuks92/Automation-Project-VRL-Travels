@@ -22,36 +22,35 @@ public void testing() throws IOException {
 		
 	
 VRLHome ob=new VRLHome(driver);
-	//ob.titleverification();
-	//ob.busesoncontract();
-	//ob.linkno();
-	//ob.register();
-	//ob.cityfield();
-	//ob.logo();
-   // ob.roundtrip();
-	  //ob.valuepassing();
-    //ob.screenshot();
+	ob.titleverification();
+	ob.busesoncontract();
+	ob.linkno();
+	ob.register();
+	ob.cityfield();
+	ob.logo();
+        ob.roundtrip();
+	ob.valuepassing();
+        ob.screenshot();
 
 
      
       VRLBusbooking ob1=new VRLBusbooking(driver);
-       //ob1.setfield();
+       ob1.setfield();
      
-		VRLParcel pc=new VRLParcel(driver); 
-		//pc.parcel();
+      VRLParcel pc=new VRLParcel(driver); 
+       pc.parcel();
 	
  	
-		VRLManagebooking mb=new VRLManagebooking(driver);
-		//mb.mybookling();
-		//mb.modifybooking();
-		//mb.cancellation(); 
+      VRLManagebooking mb=new VRLManagebooking(driver);
+       mb.mybookling();
+       mb.modifybooking();
+       mb.cancellation(); 
 	
 
-		VRLLogin ln=new VRLLogin(driver);
-		//ln.customerlog();
-		ln.agentlogin();
-		
-		//ln.branchlogin();
+     VRLLogin ln=new VRLLogin(driver);
+       ln.customerlog();
+       ln.agentlogin();
+       ln.branchlogin();
 		
 
 		
