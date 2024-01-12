@@ -13,7 +13,20 @@ import Utilities.Excelutil;
 
 public class VRLLogin {
 	WebDriver driver;
+	By login=By.xpath("//*[@id=\"VRL_Header\"]/div/div/div/div/div[2]/div[1]/div[2]/button/span");
+	By custlogin=By.xpath("//*[@id=\"VRL_Header\"]/div/div/div/div/div[2]/div[1]/div[2]/div/ul/li[1]/a");
+	By username=By.xpath("//*[@id=\"txtPhoneNo\"]");
+	By genotp=By.xpath("//button[text()='Generate OTP']");
 	
+	By agentlogin=By.xpath("//*[@id=\"VRL_Header\"]/div/div/div/div/div[2]/div[1]/div[2]/div/ul/li[2]/a");
+	By ausername=By.xpath("//*[@id=\"txtUserName\"]");
+	By apassword=By.xpath("//*[@id=\"txtPassword\"]");
+	By asubmit=By.xpath("//*[@id=\"btnSubmit\"]");		
+			
+	By branchlogin=By.xpath("//*[@id=\"VRL_Header\"]/div/div/div/div/div[2]/div[1]/div[2]/div/ul/li[3]/a");		
+	By busername=By.xpath("//*[@id=\"txtUserID\"]");
+	By bpassword=By.xpath("//*[@id=\"txtPassword\"]");
+	By bsubmit=By.xpath("//*[@id=\"btnSubmit\"]");
 	public VRLLogin(WebDriver driver) {
 		this.driver=driver;
 	}
@@ -22,16 +35,13 @@ public class VRLLogin {
 		//JavascriptExecutor js=(JavascriptExecutor) driver;
 		// js.executeScript("window.scrollBy(0,250)","");
 				
-		 driver.findElement(By.xpath("//*[@id=\"VRL_Header\"]/div/div/div/div/div[2]/div[1]/div[2]/button/span")).click();
-		 driver.findElement(By.xpath("//*[@id=\"VRL_Header\"]/div/div/div/div/div[2]/div[1]/div[2]/div/ul/li[1]/a")).click();
-		 
-
-		 
-	     driver.findElement(By.xpath("//*[@id=\"txtPhoneNo\"]")).sendKeys("arn@gmail.com");
+		 driver.findElement(login).click();
+		 driver.findElement(custlogin).click();
+		  
+	         driver.findElement(username).sendKeys("arn@gmail.com");
+		 driver.findElement(genotp).click();
 		
-		driver.findElement(By.xpath("//button[text()='Generate OTP']")).click();
 		
-		///html/body/div[2]/div[3]/div/div[1]/section[1]/div/div[2]/div[7]
 		
 	}
 	/*
@@ -51,8 +61,8 @@ public class VRLLogin {
 	public void agentlogin() {
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
 		
-		driver.findElement(By.xpath("//*[@id=\"VRL_Header\"]/div/div/div/div/div[2]/div[1]/div[2]/button/span")).click();
-		driver.findElement(By.xpath("//*[@id=\"VRL_Header\"]/div/div/div/div/div[2]/div[1]/div[2]/div/ul/li[2]/a")).click();
+		driver.findElement(login).click();
+		driver.findElement(agentlogin).click();
 		
 		
 		Set <String> newwindowhandle =driver.getWindowHandles();
@@ -66,17 +76,17 @@ public class VRLLogin {
 		
 		
 		
-		driver.findElement(By.xpath("//*[@id=\"txtUserName\"]")).sendKeys("arun");
-		driver.findElement(By.xpath("//*[@id=\"txtPassword\"]")).sendKeys("123");
+		driver.findElement(ausername).sendKeys("arun");
+		driver.findElement(apassword).sendKeys("123");
 		
-		driver.findElement(By.xpath("//*[@id=\"btnSubmit\"]")).click();
+		driver.findElement(asubmit).click();
 	}
 
 	public void branchlogin() {
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
-		
-		driver.findElement(By.xpath("//*[@id=\"VRL_Header\"]/div/div/div/div/div[2]/div[1]/div[2]/button")).click();
-		driver.findElement(By.xpath("//*[@id=\"VRL_Header\"]/div/div/div/div/div[2]/div[1]/div[2]/div/ul/li[3]/a")).click();
+
+		driver.findElement(login).click();
+		driver.findElement(branchlogin).click();
 		
 		Set <String> newwindowhandle =driver.getWindowHandles();
 		Iterator<String> itr=newwindowhandle.iterator();
@@ -85,13 +95,10 @@ public class VRLLogin {
 		driver.switchTo().window(newwindow);
 		driver.switchTo().window(oldwindow);
 		
+		driver.findElement(busername).sendKeys("arn");
+		driver.findElement(bpassword).sendKeys("qwe");
 		
-		
-		driver.findElement(By.xpath("//*[@id=\"txtUserID\"]")).clear();
-		driver.findElement(By.xpath("//*[@id=\"txtUserID\"]")).sendKeys("arn");
-		driver.findElement(By.xpath("//*[@id=\"txtPassword\"]")).sendKeys("qwe");
-		
-		driver.findElement(By.xpath("//*[@id=\"btnSubmit\"]")).click();
+		driver.findElement(bsubmit).click();
 		
 		
 	}
